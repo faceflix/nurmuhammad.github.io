@@ -209,30 +209,40 @@ input:focus, textarea:focus{border-color:rgba(110,231,255,.4)}
   }
   .nav.open{display:flex}
 }
-/* Full-page background blobs */
 .blob-bg {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;              /* behind content */
+  z-index: 0;
   overflow: hidden;
 }
 
+.blob-bg .blob {
+  position: absolute;
+  left: 0;
+  top: 0;
 
-/* Sizes */
-.blob-bg .b1 { width: 140px; height: 140px; opacity: 0.30; }
-.blob-bg .b2 { width: 260px; height: 260px; opacity: 0.18; }
-.blob-bg .b3 { width: 180px; height: 180px; opacity: 0.24; }
+  border-radius: 9999px;            /* force circle */
+  transform: translate(-50%, -50%);
+  will-change: transform;
 
-/* Ensure your site content stays above */
-.site-header,
-main,
-.section,
-.hero,
-.footer {
+  filter: blur(60px);               /* strong glow */
+  opacity: 0.28;
+}
+
+/* sizes */
+.blob-bg .b1 { width: 140px; height: 140px; }
+.blob-bg .b2 { width: 280px; height: 280px; opacity: 0.18; }
+.blob-bg .b3 { width: 190px; height: 190px; opacity: 0.24; }
+
+/* make sure content stays above */
+.site-header, main, .hero, .section, .footer {
   position: relative;
   z-index: 1;
 }
+
+/* helps avoid weird blending artifacts */
+body { isolation: isolate; }
 
 @media (prefers-reduced-motion: reduce) {
   .blob-bg { display: none; }
@@ -424,4 +434,5 @@ main,
     grid-template-columns: 1fr;
   }
 }
+
 
