@@ -354,7 +354,7 @@ main,
 }
 
 .ielts-band {
-  font-size: 300px;
+  font-size: 200px;
   font-weight: 900;
   line-height: 1;
   display: inline-block;
@@ -424,3 +424,4 @@ main,
     grid-template-columns: 1fr;
   }
 }
+
