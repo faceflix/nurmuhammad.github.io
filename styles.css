@@ -436,3 +436,41 @@ body { isolation: isolate; }
 }
 
 
+
+.projects-grid {
+  align-items: stretch;
+}
+
+.featured-project {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(110,231,255,.24);
+  background:
+    linear-gradient(135deg, rgba(110,231,255,.12), rgba(167,139,250,.10)),
+    rgba(17,24,38,.78);
+}
+
+.featured-project::after {
+  content: "";
+  position: absolute;
+  inset: auto -30px -45px auto;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(110,231,255,.22), transparent 68%);
+}
+
+.project-kicker {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 10px !important;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--accent) !important;
+  border: 1px solid rgba(110,231,255,.25);
+  background: rgba(110,231,255,.08);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}

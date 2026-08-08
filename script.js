@@ -4,18 +4,20 @@ const i18n = {
     nav_skills: "Skills",
     nav_about: "About",
     nav_contact: "Contact",
-    hero_badge: "Software Engineering Student",
+    hero_badge: "Full-Stack Developer",
     hero_hi: "Hi, I'm",
-    hero_sub: "I build clean web apps and practical tools. Here are my projects, skills, and how to contact me.",
+    hero_sub: "I build production-ready full-stack web apps with Vue.js frontends, APIs, and PostgreSQL databases.",
     hero_btn_projects: "View projects",
     hero_btn_contact: "Contact me",
     currently_title: "Currently",
-    currently_learning: "Learning: React, APIs, SQL",
-    currently_building: "Building: UniSchedule app",
-    currently_goal: "Goal: Internship / Junior role",
+    currently_learning: "Focus: Vue.js, APIs, PostgreSQL",
+    currently_building: "Building: production-ready web platforms",
+    currently_goal: "Goal: Full-stack / Junior role",
     currently_status: "Available for projects",
     projects_title: "Projects",
     projects_sub: "You need reality, get these then!",
+    project0_title: "StartUp-connect",
+    project0_desc: "Startup ecosystem platform for founders, investors, mentors, and everyone connected to startup growth.",
     project1_title: "UniSchedule",
     project1_desc: "Curriculum + class schedule web app (login-only) with admin management.",
     project2_title: "Telegram AI Bot Tool",
@@ -25,7 +27,7 @@ const i18n = {
     skills_title: "Skills",
     skills_sub: "Simple and honest.",
     about_title: "About",
-    about_body: "I'm a Software Engineering student based in Tashkent. I enjoy building practical apps and learning modern web development. I am fluent in English and pursuing international opportunities.",
+    about_body: "I'm a full-stack focused Software Engineering student based in Tashkent. I enjoy building practical, production-ready web apps with modern frontends, backend APIs, and reliable databases. I am fluent in English and pursuing international opportunities.",
     contact_title: "Contact",
     contact_email_title: "Email",
     contact_location_title: "Location",
@@ -52,18 +54,20 @@ const i18n = {
     nav_skills: "Konikmalar",
     nav_about: "Men haqimda",
     nav_contact: "Aloqa",
-    hero_badge: "Software Engineering talabasi",
+    hero_badge: "Full-stack dasturchi",
     hero_hi: "Salom, men",
-    hero_sub: "Men toza web ilovalar va amaliy vositalar yarataman. Quyida loyihalarim, konikmalarim va boglanish usullari bor.",
+    hero_sub: "Men Vue.js frontend, API va PostgreSQL database bilan productionga tayyor full-stack web ilovalar yarataman.",
     hero_btn_projects: "Loyihalarni korish",
     hero_btn_contact: "Boglanish",
     currently_title: "Hozir",
-    currently_learning: "Organayapman: React, API, SQL",
-    currently_building: "Yasayapman: UniSchedule ilovasi",
-    currently_goal: "Maqsad: Internship / Junior rol",
+    currently_learning: "Fokus: Vue.js, API, PostgreSQL",
+    currently_building: "Yasayapman: productionga tayyor web platformalar",
+    currently_goal: "Maqsad: Full-stack / Junior rol",
     currently_status: "Loyihalar uchun ochiqman",
     projects_title: "Loyihalar",
     projects_sub: "Eng real ishlarim quyida.",
+    project0_title: "StartUp-connect",
+    project0_desc: "Startup bilan bogliq barcha insonlar uchun ekotizim platformasi: founderlar, investorlar, mentorlar va startup jamoalari uchun.",
     project1_title: "UniSchedule",
     project1_desc: "Oquv reja va dars jadvali uchun web ilova (login bilan), admin boshqaruvi bilan.",
     project2_title: "Telegram AI Bot Tool",
@@ -73,7 +77,7 @@ const i18n = {
     skills_title: "Konikmalar",
     skills_sub: "Sodda va aniq.",
     about_title: "Men haqimda",
-    about_body: "Men Toshkentda yashovchi Software Engineering talabasiman. Amaliy ilovalar yaratishni va zamonaviy web texnologiyalarni organishni yoqtiraman. Ingliz tilini yaxshi bilaman va xalqaro imkoniyatlarni izlayman.",
+    about_body: "Men Toshkentda yashovchi full-stack yonalishidagi Software Engineering talabasiman. Zamonaviy frontendlar, backend APIlar va ishonchli databaselar bilan productionga tayyor amaliy web ilovalar yaratishni yoqtiraman. Ingliz tilini yaxshi bilaman va xalqaro imkoniyatlarni izlayman.",
     contact_title: "Aloqa",
     contact_email_title: "Email",
     contact_location_title: "Manzil",
@@ -168,12 +172,14 @@ function applyLanguage(lang) {
 
   setText("#projects .section-head h2", "projects_title");
   setText("#projects .section-head p", "projects_sub");
-  setText("#projects .project:nth-of-type(1) h3", "project1_title");
-  setText("#projects .project:nth-of-type(1) p", "project1_desc");
-  setText("#projects .project:nth-of-type(2) h3", "project2_title");
-  setText("#projects .project:nth-of-type(2) p", "project2_desc");
-  setText("#projects .project:nth-of-type(3) h3", "project3_title");
-  setText("#projects .project:nth-of-type(3) p", "project3_desc");
+  setText("#projects .project:nth-of-type(1) h3", "project0_title");
+  setText("#projects .project:nth-of-type(1) p:not(.project-kicker)", "project0_desc");
+  setText("#projects .project:nth-of-type(2) h3", "project1_title");
+  setText("#projects .project:nth-of-type(2) p", "project1_desc");
+  setText("#projects .project:nth-of-type(3) h3", "project2_title");
+  setText("#projects .project:nth-of-type(3) p", "project2_desc");
+  setText("#projects .project:nth-of-type(4) h3", "project3_title");
+  setText("#projects .project:nth-of-type(4) p", "project3_desc");
 
   setText("#skills .section-head h2", "skills_title");
   setText("#skills .section-head p", "skills_sub");
