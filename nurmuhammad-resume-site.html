@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nurmuhammad Abdumalikov — Junior Full-stack Dasturchi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F4F6F8;
+    --surface: #FFFFFF;
+    --ink: #16232E;
+    --ink-soft: #5B6B7A;
+    --line: #DCE3E9;
+    --navy: #1B2A41;
+    --amber: #D98E2C;
+    --teal: #2C7A72;
+    --pass: #1E8E5A;
+    --pass-bg: #E7F5EC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* HERO */
+  header.hero{
+    background:var(--navy);
+    color:#EAF0F5;
+    padding:56px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(90deg, transparent 39px, rgba(255,255,255,.04) 40px),
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:40px 40px, 100% 24px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .eyebrow{
+    font-size:12.5px; letter-spacing:.06em; color:#7FB8AE;
+    display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:#4ADE9A; box-shadow:0 0 0 3px rgba(74,222,154,.18);}
+  h1{
+    font-size:clamp(30px, 6vw, 42px);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    line-height:1.12;
+    margin-bottom:10px;
+  }
+  .role-line{
+    font-size:16px; color:#B9C9D6; margin-bottom:24px; font-weight:500;
+  }
+  .role-line strong{color:#EAF0F5; font-weight:600;}
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px;
+    font-size:13.5px;
+  }
+  .contact-row a, .contact-row span{
+    display:flex; align-items:center; gap:6px;
+    color:#CBD8E1; text-decoration:none;
+    padding:6px 10px; background:rgba(255,255,255,.06);
+    border-radius:6px; border:1px solid rgba(255,255,255,.08);
+  }
+  .contact-row a:hover{background:rgba(255,255,255,.12); color:#fff;}
+
+  /* SECTIONS */
+  section{padding:44px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-label{
+    font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); font-weight:600; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .sec-label::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  /* MATCH TERMINAL — signature element */
+  .terminal{
+    background:#0E1A24;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid #1E2E3B;
+    box-shadow:0 12px 32px -12px rgba(15,25,35,.35);
+  }
+  .term-bar{
+    display:flex; align-items:center; gap:7px;
+    padding:11px 14px; background:#0A141C; border-bottom:1px solid #1E2E3B;
+  }
+  .term-bar span{width:10px; height:10px; border-radius:50%; background:#38424C;}
+  .term-title{
+    margin-left:8px; font-size:11.5px; color:#7F94A3;
+  }
+  .term-body{padding:18px 20px 20px; font-size:13.5px;}
+  .term-cmd{color:#7FB8AE; margin-bottom:14px;}
+  .term-cmd::before{content:"$ "; color:#4A5A67;}
+  .req-line{
+    display:flex; align-items:baseline; gap:10px;
+    padding:7px 0; color:#C7D3DB;
+    border-bottom:1px dashed #182530;
+  }
+  .req-line:last-of-type{border-bottom:none;}
+  .req-status{
+    color:#4ADE9A; font-weight:600; flex-shrink:0; width:52px;
+  }
+  .req-text{color:#B7C6D1;}
+  .req-detail{color:#5F7382; display:block; font-size:12px; margin-top:2px;}
+  .term-summary{
+    margin-top:16px; padding-top:14px; border-top:1px solid #1E2E3B;
+    color:#4ADE9A; display:flex; justify-content:space-between; align-items:center;
+    font-size:13px;
+  }
+
+  /* SKILLS */
+  .skill-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+    gap:10px;
+  }
+  .skill{
+    background:var(--surface); border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px;
+  }
+  .skill-name{font-weight:600; font-size:14px; margin-bottom:2px;}
+  .skill-note{font-size:12px; color:var(--ink-soft);}
+
+  /* PROJECT */
+  .project-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:24px;
+  }
+  .project-head{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    margin-bottom:12px; flex-wrap:wrap;
+  }
+  .project-title{font-size:19px; font-weight:700;}
+  .project-tag{
+    font-size:11px; font-family:'JetBrains Mono',monospace;
+    background:var(--pass-bg); color:var(--pass); padding:4px 9px; border-radius:5px;
+    white-space:nowrap;
+  }
+  .project-desc{color:var(--ink-soft); font-size:14.5px; margin-bottom:14px;}
+  .stack-row{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+  .chip{
+    font-size:11.5px; font-family:'JetBrains Mono',monospace;
+    background:#EEF2F5; border:1px solid var(--line); color:var(--navy);
+    padding:4px 9px; border-radius:5px;
+  }
+  .project-links{display:flex; gap:10px; flex-wrap:wrap;}
+  .btn{
+    font-size:13px; font-weight:600; text-decoration:none;
+    padding:9px 14px; border-radius:7px; display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn-primary{background:var(--navy); color:#fff;}
+  .btn-primary:hover{background:#0f1c2e;}
+  .btn-ghost{background:transparent; border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--navy);}
+
+  ul.feature-list{margin-top:6px; padding-left:18px; color:var(--ink-soft); font-size:14px;}
+  ul.feature-list li{margin-bottom:4px;}
+
+  /* EDUCATION */
+  .edu-item{display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-year{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft);
+    width:90px; flex-shrink:0; padding-top:2px;
+  }
+  .edu-body strong{display:block; font-size:14.5px; margin-bottom:2px;}
+  .edu-body span{font-size:13px; color:var(--ink-soft);}
+
+  /* CTA FOOTER */
+  footer{
+    background:var(--navy); color:#EAF0F5; padding:44px 0 48px; text-align:center;
+  }
+  footer h2{font-size:22px; margin-bottom:10px;}
+  footer p{color:#B9C9D6; font-size:14px; margin-bottom:22px;}
+  .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .btn-amber{background:var(--amber); color:#1B2A41;}
+  .btn-amber:hover{background:#c37f22;}
+  .foot-note{margin-top:26px; font-size:11.5px; color:#5F7382;}
+
+  @media (max-width:600px){
+    .wrap{padding:0 18px;}
+    header.hero{padding:44px 0 32px;}
+    section{padding:32px 0;}
+    .req-line{flex-direction:column; gap:2px;}
+    .req-status{width:auto;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+  /* Terminal asosiy konteyneri */
+.terminal {
+  background-color: #0d1117;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Terminalning tepa qismi (Header) */
+.term-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px; /* Aniq balandlik beramiz */
+  padding: 0 16px;
+  background-color: #161b22;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Tepadagi 3 ta nuqta (Mac OS tugmachalari) */
+.term-bar > span:not(.term-title) {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.term-bar > span:nth-child(1) { background-color: #ff5f56; } /* Qizil */
+.term-bar > span:nth-child(2) { background-color: #ffbd2e; } /* Sariq */
+.term-bar > span:nth-child(3) { background-color: #27c93f; } /* Yashil */
+
+/* Terminal sarlavhasi (O'rtaga joylashtirish) */
+.term-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8b949e;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Terminal ichidagi kodlar maydoni */
+.term-body {
+  padding: 20px;
+  color: #e6edf3;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Buyruq qatori */
+.term-cmd::before {
+  content: "$ ";
+  color: #2f81f7; /* Terminal '$' belgisi rangi */
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow mono"><span class="dot"></span>RealSoft — Junior Full-stack Dasturchi lavozimiga nomzod</div>
+    <h1>Nurmuhammad Abdumalikov</h1>
+    <p class="role-line">Full-stack dasturchi — <strong>Vue.js</strong> &amp; <strong>PostgreSQL</strong> asosida production loyihalar quraman</p>
+    <div class="contact-row mono">
+      <a href="tel:+998900221211">+998 90 022 12 11</a>
+      <a href="mailto:abdumalikov.n.sh@gmail.com">abdumalikov.n.sh@gmail.com</a>
+      <a href="https://github.com/faceflix" target="_blank" rel="noopener">github.com/faceflix</a>
+      <span>Toshkent, O'zbekiston</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="match">
+    <div class="sec-label">Vakansiya talablariga moslik</div>
+    <div class="terminal">
+      <div class="term-bar">
+        <span></span><span></span><span></span>
+        <span class="term-title mono">realsoft-vacancy-check.sh</span>
+      </div>
+      <div class="term-body mono">
+        <div class="term-cmd">npm run check-requirements</div>
+
+        <div class="req-line">
+          <span class="req-status">PASS</span>
+          <div>
+            <span class="req-text">Amaliy tajriba</span>
+            <span class="req-detail">StartupConnect loyihasini Vue.js + PostgreSQL stackka konvertatsiya qilib, production'ga deploy qildim</span>
+          </div>
+        </div>
+
+        <div class="req-line">
+          <span class="req-status">PASS</span>
+          <div>
+            <span class="req-text">Production'ga chiqqan loyiha</span>
+            <span class="req-detail">Render'da live deploy — pastdagi loyiha bo'limida havola bor</span>
+          </div>
+        </div>
+
+        <div class="req-line">
+          <span class="req-status">PASS</span>
+          <div>
+            <span class="req-text">Vue.js</span>
+            <span class="req-detail">StartupConnect frontend'i Vue.js'ga o'tkazilgan</span>
+          </div>
+        </div>
+
+        <div class="req-line">
+          <span class="req-status">PASS</span>
+          <div>
+            <span class="req-text">PostgreSQL</span>
+            <span class="req-detail">Ma'lumotlar bazasi sifatida ishlatilgan</span>
+          </div>
+        </div>
+
+        <div class="req-line">
+          <span class="req-status">PASS</span>
+          <div>
+            <span class="req-text">Tashqi tizim integratsiyasi</span>
+            <span class="req-detail">Google Gemini API (Flash) — real-time AI chat funksiyasi uchun ulangan</span>
+          </div>
+        </div>
+
+        <div class="term-summary">
+          <span>5/5 talab bajarildi</span>
+          <span>✓ moslik tasdiqlandi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="sec-label">Loyiha</div>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-title">StartupConnect</div>
+        <div class="project-tag">● production'da</div>
+      </div>
+      <p class="project-desc">
+        Markaziy Osiyo startap ekotizimi uchun uch tilli (o'zbek, rus, ingliz) ijtimoiy-professional platforma. Asoschilar, dasturchilar, dizaynerlar va investorlarni bir joyda birlashtiradi. Vue.js va PostgreSQL asosiga konvertatsiya qilingan va deploy qilingan.
+      </p>
+      <div class="stack-row">
+        <span class="chip">Vue.js</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Socket.io</span>
+        <span class="chip">Gemini API</span>
+        <span class="chip">MongoDB</span>
+      </div>
+      <ul class="feature-list">
+        <li>Real vaqtda chat funksiyasi (Socket.io)</li>
+        <li>Gemini AI chatbot integratsiyasi — tashqi tizim bilan ishlash tajribasi</li>
+        <li>Autentifikatsiya va fayl saqlash — MongoDB orqali</li>
+        <li>Uch tilli interfeys (UZ / RU / EN)</li>
+      </ul>
+      <br>
+      <div class="project-links">
+        <a class="btn btn-primary" href="https://startup-connect-frontend-z4ky.onrender.com" target="_blank" rel="noopener">Loyihani ko'rish ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/faceflix/start" target="_blank" rel="noopener">GitHub kodi</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-label">Texnik ko'nikmalar</div>
+    <div class="skill-grid">
+      <div class="skill"><div class="skill-name mono">Vue.js</div><div class="skill-note">Amaliy loyiha tajribasi</div></div>
+      <div class="skill"><div class="skill-name mono">PostgreSQL</div><div class="skill-note">Ma'lumotlar bazasi dizayni</div></div>
+      <div class="skill"><div class="skill-name mono">React</div><div class="skill-note">MERN stack asosida</div></div>
+      <div class="skill"><div class="skill-name mono">Node.js</div><div class="skill-note">Backend / API</div></div>
+      <div class="skill"><div class="skill-name mono">Socket.io</div><div class="skill-note">Real-time funksiyalar</div></div>
+      <div class="skill"><div class="skill-name mono">Gemini API</div><div class="skill-note">Tashqi AI integratsiyasi</div></div>
+      <div class="skill"><div class="skill-name mono">Supabase</div><div class="skill-note">Auth, DB, storage</div></div>
+      <div class="skill"><div class="skill-name mono">Git / GitHub</div><div class="skill-note">Versiyalash</div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-label">Ta'lim</div>
+    <div class="edu-item">
+      <div class="edu-year mono">2023–2027</div>
+      <div class="edu-body">
+        <strong>Toshkent Axborot Texnologiyalari Universiteti (TATU)</strong>
+        <span>Software Engineering, 311-23 guruhi</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year mono">Davom etmoqda</div>
+      <div class="edu-body">
+        <strong>Farobiy Academy</strong>
+        <span>Data Analytics yo'nalishi bo'yicha kurs</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Suhbatga tayyorman</h2>
+    <p>RealSoft jamoasiga Junior Full-stack dasturchi sifatida qo'shilishga qiziqaman.</p>
+    <div class="cta-row">
+      <a class="btn btn-amber" href="https://t.me/hrd_realsoft" target="_blank" rel="noopener">HR bilan bog'lanish ↗</a>
+      <a class="btn btn-ghost" 
+   style="border-color:rgba(255,255,255,.25); color:#EAF0F5;" 
+   href="https://mail.google.com/mail/?view=cm&fs=1&to=abdumalikov.n.sh@gmail.com" 
+   target="_blank" 
+   rel="noopener noreferrer">Email yuborish</a>
+    </div>
+    <div class="foot-note mono">abdumalikov.n.sh@gmail.com · +998 90 022 12 11 · github.com/faceflix</div>
+  </div>
+</footer>
+
+</body>
+</html>
